@@ -20,8 +20,7 @@ class Post extends Component {
         if (!this.props.post.title) return <Error statusCode={404} />;
 
         return (
-            <Layout>
-                <Menu menu={this.props.headerMenu} />
+            <Layout {...this.props}>
                 <h1>{this.props.post.title.rendered}</h1>
                 <div
                     dangerouslySetInnerHTML={{

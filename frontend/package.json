@@ -12,17 +12,19 @@
         "docker:stop": "docker stop frontend",
         "docker:start": "docker start frontend && yarn run docker:logs",
         "docker:logs": "docker logs -f frontend",
-        "deploy":
-            "yarn run docker:build && yarn run docker:clean && yarn run docker:run"
+        "deploy": "yarn run docker:build && yarn run docker:clean && yarn run docker:run"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "babel-plugin-styled-components": "^1.8.0",
         "express": "^4.16.2",
         "isomorphic-unfetch": "^2.0.0",
         "next": "latest",
-        "react": "^16.0.0"
+        "react": "^16.0.0",
+        "styled-components": "^3.4.9",
+        "styled-system": "^3.1.6"
     },
     "devDependencies": {
         "autoprefixer": "7.1.5",

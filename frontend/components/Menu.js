@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import Link from "next/link";
+import Box from './Box'
+import Button from './Button'
+import BaseLink from './Link'
+import Text from './Text'
 import { Config } from "../config.js";
-
-const linkStyle = {
-    marginRight: 15
-};
 
 class Menu extends Component {
   constructor() {
@@ -18,10 +18,30 @@ class Menu extends Component {
 
   render() {
       const menuItems = this.props.menu.items.map((item, index) => {
+        if (item.post_name === "blog") {
+            return (
+                <Link
+                    key={item.ID}
+                    as={`/${item.post_name}`}
+                    href={`/${item.post_name}?slug=${item.post_name}&apiRoute=pages`}
+                >
+                    <BaseLink>{item.post_title}</BaseLink>
+                </Link>
+            )
+        }
+        if (item.post_name === "contact") {
+            return (
+                <Link href={item.url} key={item.ID}>
+                    <Button.link>
+                        <Text fontSize={0}>{item.title}</Text>
+                    </Button.link>
+                </Link>
+            )
+        }
         if (item.object === "custom") {
             return (
                 <Link href={item.url} key={item.ID}>
-                    <a style={linkStyle}>{item.title}</a>
+                    <a>{item.title}</a>
                 </Link>
             );
         }
@@ -33,19 +53,16 @@ class Menu extends Component {
                 href={`/${actualPage}?slug=${slug}&apiRoute=${item.object}`}
                 key={item.ID}
             >
-                <a style={linkStyle}>{item.title}</a>
+                <a>{item.title}</a>
             </Link>
         );
     });
 
 
     return(
-      <div>
-          <Link href="/">
-              <a style={linkStyle}>Home</a>
-          </Link>
+      <Box>
           {menuItems}
-      </div>
+      </Box>
     )
   }
 

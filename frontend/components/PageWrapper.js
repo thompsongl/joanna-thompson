@@ -8,8 +8,13 @@ const PageWrapper = Comp => (
         `${Config.apiUrl}/wp-json/menus/v1/menus/header-menu`
       );
       const headerMenu = await headerMenuRes.json();
+      const businessDataRes = await fetch(
+        `${Config.apiUrl}/wp-json/acf/v3/options/business-settings`
+      );
+      const businessData = await businessDataRes.json();
       return {
         headerMenu,
+        businessData,
         ...(Comp.getInitialProps ? await Comp.getInitialProps(args) : null),
       };
     }

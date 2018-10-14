@@ -1,8 +1,8 @@
 {
-  "name": "headless-wp-starter",
-  "version": "1.0.0",
-  "repository": "git@github.com:postlight/headless-wp-starter.git",
-  "author": "Postlight",
+  "name": "joanna-thompson",
+  "version": "0.1.0",
+  "repository": "git@github.com:thompsongl/joanna-thompson.git",
+  "author": "Greg Thompson",
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
