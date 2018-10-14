@@ -42,10 +42,10 @@ const Layout = props => (
             ) : (
               <React.Fragment>{props.children}</React.Fragment>
             )}
-            <Section bg={'green.2'} id="contact">
+            <Section bg={'green.2'}>
                 <Container py={8} maxWidth={0}>
-                    <Heading>Contact</Heading>
-                        <form id="contactForm" action="javascript:sendData()">
+                    <Heading>Sign Up</Heading>
+                        {/*<form id="contactForm" action="javascript:sendData()">
                             <Box>
                                 <Label display="block" width="100%" htmlFor="name">
                                     <Text color="gray.8">Name</Text>
@@ -65,7 +65,7 @@ const Layout = props => (
                                 <Input.textarea borderColor='gray.8' id="message" name="message" rows="5" />
                             </Box>
                             <Button type="submit" value="Send" mt={3} />
-                        </form>
+                        </form>*/}
                 </Container>
             </Section>
         </main>
@@ -76,10 +76,10 @@ const Layout = props => (
                 </Text>
                 {props.businessData && (
                     <Flex alignItems='center' justifyContent='center' mt={2}>
-                        {props.businessData.acf.instagram && <BareLink href={props.businessData.acf.instagram} target="_blank"><img src={`https:icon.now.sh/instagram/${theme.colors.gray[8].substr(1)}`} alt='Follow me on Instagram' /></BareLink>}
-                        {props.businessData.acf.facebook && <BareLink href={props.businessData.acf.facebook} target="_blank"><img src={`https:icon.now.sh/facebook/${theme.colors.gray[8].substr(1)}`} alt='Friend me on Facbook' /></BareLink>}
-                        {props.businessData.acf.twitter && <BareLink href={props.businessData.acf.twitter} target="_blank"><img src={`https:icon.now.sh/twitter/${theme.colors.gray[8].substr(1)}`} alt='Follow me on Twitter' /></BareLink>}
-                        {props.businessData.acf.pinterest && <BareLink href={props.businessData.acf.pinterest} target="_blank"><img src={`https:icon.now.sh/pinterest/${theme.colors.gray[8].substr(1)}`} alt='Follow me on Pinterest' /></BareLink>}
+                        {props.businessData.acf.instagram && <BareLink href={props.businessData.acf.instagram} target="_blank"><img src={`https:icon.now.sh/instagram/${theme.iconColor}`} alt='Follow me on Instagram' /></BareLink>}
+                        {props.businessData.acf.facebook && <BareLink href={props.businessData.acf.facebook} target="_blank"><img src={`https:icon.now.sh/facebook/${theme.iconColor}`} alt='Friend me on Facbook' /></BareLink>}
+                        {props.businessData.acf.twitter && <BareLink href={props.businessData.acf.twitter} target="_blank"><img src={`https:icon.now.sh/twitter/${theme.iconColor}`} alt='Follow me on Twitter' /></BareLink>}
+                        {props.businessData.acf.pinterest && <BareLink href={props.businessData.acf.pinterest} target="_blank"><img src={`https:icon.now.sh/pinterest/${theme.iconColor}`} alt='Follow me on Pinterest' /></BareLink>}
                     </Flex>
                 )}
             </Container>

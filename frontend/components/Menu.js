@@ -31,7 +31,11 @@ class Menu extends Component {
         }
         if (item.post_name === "contact") {
             return (
-                <Link href={item.url} key={item.ID}>
+                <Link
+                    key={item.ID}
+                    as={`/${item.post_name}`}
+                    href={`/${item.post_name}?slug=${item.post_name}&apiRoute=pages`}
+                >
                     <Button.link>
                         <Text fontSize={0}>{item.title}</Text>
                     </Button.link>

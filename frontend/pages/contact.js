@@ -32,6 +32,14 @@ class Index extends Component {
     render() {
         return (
             <Layout {...this.props}>
+                <Section bg={'green.2'}>
+                    <Container py={4}>
+                        <Heading>Schedule a consultation call</Heading>
+                        <Box mt={3} maxWidth={0} mx='auto'>
+                            {this.props.businessData && <Text fontSize={1} textAlign='center'>For any other questions, press inquiries or collaboration opportunities, please email <BareLink fontFamily={0} px={0} href={`mailto:${this.props.businessData.acf.email}`}>{this.props.businessData.acf.email}</BareLink>.</Text>}
+                        </Box>
+                    </Container>
+                </Section>
                 <Section>
                     <Container py={4}>
                         <iframe src="https://calendly.com/joanna-thompson/?embed_domain=www.joanna-thompson.com&embed_type=Inline" width="100%" height="600px" frameBorder="0"></iframe>

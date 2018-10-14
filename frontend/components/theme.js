@@ -1,4 +1,5 @@
 const gray = '#d1d5da';
+const black = '#3f3f3e';
 const theme = {
   breakpoints: [
     '540px',
@@ -15,7 +16,7 @@ const theme = {
   lineHeight: 1.5,
   colors: {
     bodytext: '#24292e',
-    black: '#3f3f3e',
+    black: black,
     white: '#fff',
     gray: ["#f9f9f8",
     "#efeceb",
@@ -72,7 +73,8 @@ const theme = {
   shadows: [
     '0',
     `1px 3px 12px ${gray}`
-  ]
+  ],
+  iconColor: black.substr(1)
 }
 
 export default theme

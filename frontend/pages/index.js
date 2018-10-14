@@ -58,10 +58,10 @@ class Index extends Component {
                                 </Box>
                                 {this.props.businessData && (
                                     <Flex alignItems='center' justifyContent={['center', 'flex-start']} mt={2}>
-                                        {this.props.businessData.acf.instagram && <BareLink href={this.props.businessData.acf.instagram} target="_blank" pl={[1, '0']}><img src={`https:icon.now.sh/instagram/${theme.colors.black}`} alt='Follow me on Instagram' /></BareLink>}
-                                        {this.props.businessData.acf.facebook && <BareLink href={this.props.businessData.acf.facebook} target="_blank"><img src={`https:icon.now.sh/facebook/${theme.colors.black}`} alt='Friend me on Facbook' /></BareLink>}
-                                        {this.props.businessData.acf.twitter && <BareLink href={this.props.businessData.acf.twitter} target="_blank"><img src={`https:icon.now.sh/twitter/${theme.colors.black}`} alt='Follow me on Twitter' /></BareLink>}
-                                        {this.props.businessData.acf.pinterest && <BareLink href={this.props.businessData.acf.pinterest} target="_blank"><img src={`https:icon.now.sh/pinterest/${theme.colors.black}`} alt='Follow me on Pinterest' /></BareLink>}
+                                        {this.props.businessData.acf.instagram && <BareLink href={this.props.businessData.acf.instagram} target="_blank" pl={[1, '0']}><img src={`https:icon.now.sh/instagram/${theme.colors.iconColor}`} alt='Follow me on Instagram' /></BareLink>}
+                                        {this.props.businessData.acf.facebook && <BareLink href={this.props.businessData.acf.facebook} target="_blank"><img src={`https:icon.now.sh/facebook/${theme.iconColor}`} alt='Friend me on Facbook' /></BareLink>}
+                                        {this.props.businessData.acf.twitter && <BareLink href={this.props.businessData.acf.twitter} target="_blank"><img src={`https:icon.now.sh/twitter/${theme.iconColor}`} alt='Follow me on Twitter' /></BareLink>}
+                                        {this.props.businessData.acf.pinterest && <BareLink href={this.props.businessData.acf.pinterest} target="_blank"><img src={`https:icon.now.sh/pinterest/${theme.iconColor}`} alt='Follow me on Pinterest' /></BareLink>}
                                     </Flex>
                                 )}
                             </Flex>
@@ -112,8 +112,8 @@ class Index extends Component {
                         </Flex>*/}
                         <Box flexWrap='wrap'>
                             {this.props.businessData && this.props.businessData.acf.prices.map((item, key) => (
-                                <Box py={3}>
-                                    <Flex key={key} width={'100%'} py={2} flexWrap='wrap'>
+                                <Box py={4}>
+                                    <Flex key={key} width={'100%'} py={3} flexWrap='wrap'>
                                         <Flex width={['100%', '40%']} flexDirection='column' justifyContent='space-between'>
                                             <Box>
                                                 <Heading textAlign={['center', 'left']} fontSize={3} lineHeight='1'>{item.name}</Heading>
@@ -141,7 +141,7 @@ class Index extends Component {
                                             </ul>
                                         </Box>
                                     </Flex>
-                                    <Divider my={6} />
+                                    <Divider mt={6} />
                                 </Box>
                             ))}
                         </Box>
