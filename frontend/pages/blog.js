@@ -17,24 +17,24 @@ import { Config } from "../config.js";
 
 const BlogCard = Box.withComponent('a');
 
-class Post extends Component {
+class Blog extends Component {
     static async getInitialProps(context) {
         const { slug, apiRoute } = context.query;
         const res = await fetch(
             `${Config.apiUrl}/wp-json/postlight/v1/page?slug=blog`
         );
-        const post = await res.json();
+        const page = await res.json();
         const postsRes = await fetch(
             `${Config.apiUrl}/wp-json/wp/v2/posts?_embed`
         );
         const posts = await postsRes.json();
-        return { post, posts };
+        return { page, posts };
     }
 
     render() {
         return (
             <Layout {...this.props}>
-                <Heading>{this.props.post.title && this.props.post.title.rendered}</Heading>
+                <Heading>{this.props.page.title && this.props.page.title.rendered}</Heading>
                 <Container>
                     <Flex mt={5} mb={8} flexWrap='wrap' justifyContent='center'>
                         {!!this.props.posts.length ? (
@@ -73,4 +73,4 @@ class Post extends Component {
     }
 }
 
-export default PageWrapper(Post);
+export default PageWrapper(Blog);

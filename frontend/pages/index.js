@@ -120,7 +120,7 @@ class Index extends Component {
                                                 <Text fontSize={2} textAlign={['center', 'left']} pt={1}><em>{item.cost ? `$${item.cost}` : 'Contact me for pricing'}<Text.span fontSize={2}>{item.period && `/${item.period}`}</Text.span ></em></Text>
                                             </Box>
                                             <Box>
-                                                {item.notes.length && item.notes.map((note, notekey) => (
+                                                {!!item.notes.length && item.notes.map((note, notekey) => (
                                                     <Text key={notekey} fontSize={1} lineHeight={1} color={'gray.8'} textAlign={['center', 'left']}><em>{note.note}</em></Text>
                                                 ))}
                                             </Box>
@@ -159,7 +159,8 @@ class Index extends Component {
                     style={{
                         backgroundImage: 'url("/static/images/rack.jpg")',
                         backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat'
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'center center'
                     }}
                 />
                 <Section>

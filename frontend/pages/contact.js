@@ -20,7 +20,7 @@ const List = Flex.withComponent('ul');
 const ListItem = Box.withComponent('li');
 const Section = Box.withComponent('section');
 
-class Index extends Component {
+class Contact extends Component {
     static async getInitialProps(context) {
         const pageRes = await fetch(
             `${Config.apiUrl}/wp-json/postlight/v1/page?slug=contact`
@@ -50,4 +50,4 @@ class Index extends Component {
     }
 }
 
-export default PageWrapper(Index);
+export default PageWrapper(Contact);
