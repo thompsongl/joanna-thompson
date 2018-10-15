@@ -1,5 +1,6 @@
 import Box from './Box'
 import theme from './theme'
+import styled from 'styled-components'
 
 const InputButton = Box.withComponent('input')
 
@@ -20,6 +21,13 @@ const Button = InputButton.extend`
 `
 
 Button.link = Button.withComponent('a')
+Button.button = styled('button')`
+    appearance: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding-top: 2px;
+`;
 
 
 export default Button

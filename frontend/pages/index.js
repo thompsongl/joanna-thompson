@@ -42,7 +42,7 @@ class Index extends Component {
                 <Section>
                     <Container py={6}>
                         <Flex flexWrap="wrap">
-                            <Box width={['0%', '40%']} display="inline-block">
+                            <Box width='40%' display={["none", "inline-block"]}>
                                 <img
                                     src="/static/images/joanna.jpg"
                                     alt="Joanna sitting with her arms crossed, feet propped on a stack of books"
@@ -84,8 +84,8 @@ class Index extends Component {
                     <Container pt={2} pb={8}>
                         <Box flexWrap='wrap'>
                             {this.props.businessData && this.props.businessData.acf.prices.map((item, key) => (
-                                <Box py={4}>
-                                    <Flex key={key} width={'100%'} py={3} flexWrap='wrap'>
+                                <Box key={key} py={4}>
+                                    <Flex width={'100%'} py={3} flexWrap='wrap'>
                                         <Flex width={['100%', '40%']} flexDirection='column' justifyContent='space-between'>
                                             <Box>
                                                 <Heading textAlign={['center', 'left']} fontSize={3} lineHeight='1'>{item.name}</Heading>
@@ -108,7 +108,7 @@ class Index extends Component {
                                             <Text color={'gray.8'}><em>Includes:</em></Text>
                                             <ul>
                                                 {item.details.map((detail, detailkey) => (
-                                                    <li className="normal"><Text  key={detailkey} fontSize={1} textAlign={['left']} lineHeight={1} mb={2}>{detail.detail}</Text></li>
+                                                    <li key={detailkey} className="normal"><Text fontSize={1} textAlign={['left']} lineHeight={1} mb={2}>{detail.detail}</Text></li>
                                                 ))}
                                             </ul>
                                         </Box>

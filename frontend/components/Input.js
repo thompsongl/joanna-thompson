@@ -9,7 +9,7 @@ Input.defaultProps = {
     bg: 'white',
     p: 2,
     border: '1px solid',
-    borderColor: 'gray.7'
+    borderColor: 'gray.8'
 }
 
 Input.textarea = Input.withComponent('textarea')

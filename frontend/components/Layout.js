@@ -17,10 +17,29 @@ import Text from './Text'
 
 const Label = Box.withComponent('label');
 const Section = Box.withComponent('section');
+const LinkedBox = Box.withComponent('a');
 
 const Layout = props => (
     <ThemeProvider theme={theme}>
-      <Box id="pageroot" color='bodytext'>
+      <Box color='bodytext'>
+          {props.shouldShowBanner && (
+              <Section bg={'black'}>
+                  <Flex justifyContent='space-between' alignItems='center' py={1}>
+                    <Link as={`/contact`} href={`/contact?slug=contact&apiRoute=pages`}>
+                        <LinkedBox style={{flexGrow: 1}} pl={4} pr={1}>
+                            <Text color={theme.colors.white} textAlign='center'>{props.businessData.acf.newsletter_banner}</Text>
+                        </LinkedBox>
+                    </Link>
+                    <Flex alignItems='center' style={{flexShrink: 0}}>
+                        <Button.button type="button" onClick={() => {
+                            props.updateShouldShowBanner(false)
+                        }}>
+                            <img src={`https://icon.now.sh/x/${theme.colors.white.substr(1)}`} alt='Close' />
+                        </Button.button>
+                    </Flex>
+                   </Flex>
+              </Section>
+          )}
           <Header>
               <Container>
                   <Flex justifyContent='space-between' alignItems='center'>
@@ -49,11 +68,11 @@ const Layout = props => (
                     {props.businessData && <Text textAlign='center' mb={3}>{props.businessData.acf.newsletter_incentive}</Text>}
                         {/*<!-- Begin Mailchimp Signup Form -->*/}
                         <div id="mc_embed_signup">
-                            <form action="https://now.us19.list-manage.com/subscribe/post?u=4549ea4a5d992521b24443fe6&amp;id=a3aa572a1b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                            <form action="https://now.us19.list-manage.com/subscribe/post?u=4549ea4a5d992521b24443fe6&amp;id=a3aa572a1b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
                                 <Flex id="mc_embed_signup_scroll">
                                 	<Input type="email" name="EMAIL" id="mce-EMAIL" placeholder="Email Address" required />
                                     {/*<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->*/}
-                                    <div style={{position: "absolute", left: "-5000px"}} aria-hidden="true"><input type="text" name="b_4549ea4a5d992521b24443fe6_a3aa572a1b" tabindex="-1" value="" /></div>
+                                    <div style={{position: "absolute", left: "-5000px"}} aria-hidden="true"><input type="text" name="b_4549ea4a5d992521b24443fe6_a3aa572a1b" tabIndex="-1" value="" /></div>
                                     <Button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" ml={2} />
                                 </Flex>
                             </form>
