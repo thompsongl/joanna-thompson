@@ -12,6 +12,7 @@ import Header from './Header'
 import Heading from './Heading'
 import Input from './Input'
 import Menu from './Menu'
+import Social from './Social'
 import Text from './Text'
 
 const Label = Box.withComponent('label');
@@ -44,28 +45,20 @@ const Layout = props => (
             )}
             <Section bg={'green.2'}>
                 <Container py={8} maxWidth={0}>
-                    <Heading>Sign Up</Heading>
-                        {/*<form id="contactForm" action="javascript:sendData()">
-                            <Box>
-                                <Label display="block" width="100%" htmlFor="name">
-                                    <Text color="gray.8">Name</Text>
-                                </Label>
-                                <Input id="name" name="name" type="text" required />
-                            </Box>
-                            <Box my={2}>
-                                <Label display="block" width="100%" htmlFor="email">
-                                    <Text color="gray.8">Email</Text>
-                                </Label>
-                                <Input id="email" name="email" type="email" required />
-                            </Box>
-                            <Box>
-                                <Label display="block" width="100%" htmlFor="message">
-                                    <Text color="gray.8">Message</Text>
-                                </Label>
-                                <Input.textarea borderColor='gray.8' id="message" name="message" rows="5" />
-                            </Box>
-                            <Button type="submit" value="Send" mt={3} />
-                        </form>*/}
+                    <Heading mb={2}>Subscribe</Heading>
+                    {props.businessData && <Text textAlign='center' mb={3}>{props.businessData.acf.newsletter_incentive}</Text>}
+                        {/*<!-- Begin Mailchimp Signup Form -->*/}
+                        <div id="mc_embed_signup">
+                            <form action="https://now.us19.list-manage.com/subscribe/post?u=4549ea4a5d992521b24443fe6&amp;id=a3aa572a1b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                                <Flex id="mc_embed_signup_scroll">
+                                	<Input type="email" name="EMAIL" id="mce-EMAIL" placeholder="Email Address" required />
+                                    {/*<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->*/}
+                                    <div style={{position: "absolute", left: "-5000px"}} aria-hidden="true"><input type="text" name="b_4549ea4a5d992521b24443fe6_a3aa572a1b" tabindex="-1" value="" /></div>
+                                    <Button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" ml={2} />
+                                </Flex>
+                            </form>
+                        </div>
+                        {/*<!--End mc_embed_signup-->*/}
                 </Container>
             </Section>
         </main>
@@ -76,10 +69,7 @@ const Layout = props => (
                 </Text>
                 {props.businessData && (
                     <Flex alignItems='center' justifyContent='center' mt={2}>
-                        {props.businessData.acf.instagram && <BareLink href={props.businessData.acf.instagram} target="_blank"><img src={`https:icon.now.sh/instagram/${theme.iconColor}`} alt='Follow me on Instagram' /></BareLink>}
-                        {props.businessData.acf.facebook && <BareLink href={props.businessData.acf.facebook} target="_blank"><img src={`https:icon.now.sh/facebook/${theme.iconColor}`} alt='Friend me on Facbook' /></BareLink>}
-                        {props.businessData.acf.twitter && <BareLink href={props.businessData.acf.twitter} target="_blank"><img src={`https:icon.now.sh/twitter/${theme.iconColor}`} alt='Follow me on Twitter' /></BareLink>}
-                        {props.businessData.acf.pinterest && <BareLink href={props.businessData.acf.pinterest} target="_blank"><img src={`https:icon.now.sh/pinterest/${theme.iconColor}`} alt='Follow me on Pinterest' /></BareLink>}
+                        <Social businessData={props.businessData} theme={theme} />
                     </Flex>
                 )}
             </Container>

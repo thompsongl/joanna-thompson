@@ -2,18 +2,17 @@ import Layout from "../components/Layout.js";
 import React, { Component } from "react";
 import fetch from "isomorphic-unfetch";
 import Link from "next/link";
-import BareLink from "../components/Link";
 import Box from '../components/Box'
 import Button from '../components/Button'
-import Card from '../components/Card'
 import Container from '../components/Container'
 import Divider from '../components/Divider'
 import Expandable from '../components/Expandable'
 import Flex from '../components/Flex'
 import Heading from '../components/Heading'
+import Menu from "../components/Menu";
+import PageWrapper from "../components/PageWrapper";
+import Social from "../components/Social";
 import Text from '../components/Text'
-import PageWrapper from "../components/PageWrapper.js";
-import Menu from "../components/Menu.js";
 import theme from "../components/theme.js"
 import { Config } from "../config.js";
 
@@ -58,10 +57,7 @@ class Index extends Component {
                                 </Box>
                                 {this.props.businessData && (
                                     <Flex alignItems='center' justifyContent={['center', 'flex-start']} mt={2}>
-                                        {this.props.businessData.acf.instagram && <BareLink href={this.props.businessData.acf.instagram} target="_blank" pl={[1, '0']}><img src={`https:icon.now.sh/instagram/${theme.colors.iconColor}`} alt='Follow me on Instagram' /></BareLink>}
-                                        {this.props.businessData.acf.facebook && <BareLink href={this.props.businessData.acf.facebook} target="_blank"><img src={`https:icon.now.sh/facebook/${theme.iconColor}`} alt='Friend me on Facbook' /></BareLink>}
-                                        {this.props.businessData.acf.twitter && <BareLink href={this.props.businessData.acf.twitter} target="_blank"><img src={`https:icon.now.sh/twitter/${theme.iconColor}`} alt='Follow me on Twitter' /></BareLink>}
-                                        {this.props.businessData.acf.pinterest && <BareLink href={this.props.businessData.acf.pinterest} target="_blank"><img src={`https:icon.now.sh/pinterest/${theme.iconColor}`} alt='Follow me on Pinterest' /></BareLink>}
+                                        <Social businessData={this.props.businessData} theme={theme} />
                                     </Flex>
                                 )}
                             </Flex>
@@ -86,30 +82,6 @@ class Index extends Component {
                 </Section>
                 <Section>
                     <Container pt={2} pb={8}>
-                        {/*<Flex flexWrap='wrap'>
-                            {this.props.businessData && this.props.businessData.acf.prices.map((item, key) => (
-                                <Box key={key} width={['100%', '50%']} px={2} py={8}>
-                                    <Heading textAlign={['center']} fontSize={2}>{item.name}</Heading>
-                                    <Text fontSize={2} textAlign={['center']} pb={3}>{item.cost ? `$${item.cost}` : 'Contact me for pricing'}<Text.span fontSize={2}>{item.period && `/${item.period}`}</Text.span ></Text>
-                                    {item.notes.length && item.notes.map((note, notekey) => (
-                                        <Text key={notekey} fontSize={1} lineHeight={1} color={'gray.8'} textAlign='center'><em>{note.note}</em></Text>
-                                    ))}
-                                    <Box my={3}>
-                                        <Text color={'gray.8'}><em>Includes:</em></Text>
-                                        <ul>
-                                            {item.details.map((detail, detailkey) => (
-                                                <li className="normal"><Text  key={detailkey} fontSize={1} textAlign={['left']} lineHeight={1} mb={2}>{detail.detail}</Text></li>
-                                            ))}
-                                        </ul>
-                                    </Box>
-                                    <Text textAlign="center">
-                                        <Link as={`/contact`} href={`/contact?slug=contact&apiRoute=pages`}>
-                                            <Button.link><Text fontSize={1}>Get Started</Text></Button.link>
-                                        </Link>
-                                    </Text>
-                                </Box>
-                            ))}
-                        </Flex>*/}
                         <Box flexWrap='wrap'>
                             {this.props.businessData && this.props.businessData.acf.prices.map((item, key) => (
                                 <Box py={4}>

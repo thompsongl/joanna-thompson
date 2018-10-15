@@ -4,7 +4,6 @@ import fetch from "isomorphic-unfetch";
 import Link from "next/link";
 import BareLink from "../components/Link";
 import Box from '../components/Box'
-import Card from '../components/Card'
 import Container from '../components/Container'
 import Divider from '../components/Divider'
 import Expandable from '../components/Expandable'

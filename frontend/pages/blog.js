@@ -5,7 +5,6 @@ import Error from "next/error";
 import Link from "next/link";
 import Box from '../components/Box'
 import Button from '../components/Button'
-import Card from '../components/Card'
 import Container from '../components/Container'
 import Divider from '../components/Divider'
 import Flex from '../components/Flex'
