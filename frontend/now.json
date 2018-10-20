@@ -1,4 +1,6 @@
 {
+  "name": "joanna-thompson",
+  "alias": ["joanna-thompson"],
   "type": "docker",
   "public": false
 }
