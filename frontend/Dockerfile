@@ -1,16 +1,13 @@
-FROM node:7
+FROM mhart/alpine-node:10 as base
+WORKDIR /usr/src
+COPY package.json yarn.lock /usr/src/
+RUN yarn install
+COPY . .
+RUN yarn build && yarn --production
 
-# Create app directory
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-
-# Install app dependencies
-COPY package.json /usr/src/app/
-RUN npm install
-
-# Bundle app source
-COPY . /usr/src/app
-RUN npm run build
-
+FROM mhart/alpine-node:base-10
+WORKDIR /usr/src
+ENV NODE_ENV="production"
+COPY --from=base /usr/src .
 EXPOSE 3000
-CMD [ "npm", "start" ]
+CMD ["node", "server.js"]
