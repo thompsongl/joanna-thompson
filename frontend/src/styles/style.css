@@ -5,10 +5,12 @@
 }
 @font-face {
   font-family: "Belleza";
+  font-display: fallback;
   src: url("/static/fonts/Belleza-Regular.woff2") format("woff2");
 }
 @font-face {
   font-family: "Work Sans";
+  font-display: fallback;
   src: url("/static/fonts/WorkSans-Regular.woff2") format("woff2");
 }
 body {
@@ -32,4 +34,12 @@ a {
 }
 img {
     max-width: 100%;
+}
+.visually-hidden {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
 }

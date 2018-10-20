@@ -20,9 +20,9 @@ export default class MyDocument extends Document {
                 content="width=device-width, initial-scale=1"
             />
             <meta charSet="utf-8" />
-            <meta name="Description" content="Put your description here." />
+            <meta name="Description" content="In-home and remote professional organizing. I will help you understand your own organizing weaknesses and challenges, and together we will create the stress-free, organized environment you want." />
             <title>
-                WordPress + React Starter Kit Frontend by Postlight
+                Joanna Thompson | Professional Organizing | Omaha, NE
             </title>
             <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
             {this.props.styleTags}

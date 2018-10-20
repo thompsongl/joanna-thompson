@@ -70,6 +70,7 @@ const Layout = props => (
                         <div id="mc_embed_signup">
                             <form action="https://now.us19.list-manage.com/subscribe/post?u=4549ea4a5d992521b24443fe6&amp;id=a3aa572a1b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
                                 <Flex id="mc_embed_signup_scroll">
+                                    <label className="visually-hidden" htmlFor="mce-EMAIL">Email Address</label>
                                 	<Input type="email" name="EMAIL" id="mce-EMAIL" placeholder="Email Address" required />
                                     {/*<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->*/}
                                     <div style={{position: "absolute", left: "-5000px"}} aria-hidden="true"><input type="text" name="b_4549ea4a5d992521b24443fe6_a3aa572a1b" tabIndex="-1" value="" /></div>
