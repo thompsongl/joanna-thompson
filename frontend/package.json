@@ -24,6 +24,7 @@
         "next": "latest",
         "react": "^16.3.0",
         "react-dom": "^16.3.0",
+        "serve-favicon": "^2.5.0",
         "styled-components": "^4.0.0",
         "styled-system": "^3.1.6"
     },

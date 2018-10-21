@@ -15,15 +15,20 @@ export default class MyDocument extends Document {
     return (
       <html lang="en-US">
         <Head>
+            <title>
+                Joanna Thompson | Professional Organizing | Omaha, NE
+            </title>
             <meta
                 name="viewport"
                 content="width=device-width, initial-scale=1"
             />
             <meta charSet="utf-8" />
             <meta name="Description" content="In-home and remote professional organizing. I will help you understand your own organizing weaknesses and challenges, and together we will create the stress-free, organized environment you want." />
-            <title>
-                Joanna Thompson | Professional Organizing | Omaha, NE
-            </title>
+            <meta property="og:site_name" content="Joanna Thompson" />
+            <meta property="og:locale" content="en_US" />
+            <meta property="og:title" content="Joanna Thompson | Professional Organizing" />
+            <meta property="og:type" content="website" />
+            <meta property="og:image" content="https://wp.joanna-thompson.com/wp-content/uploads/2018/10/boxes.jpg" />
             <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
             {this.props.styleTags}
         </Head>

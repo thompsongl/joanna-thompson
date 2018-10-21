@@ -1,5 +1,7 @@
 const express = require("express");
+const favicon = require("serve-favicon")
 const next = require("next");
+const path = require("path")
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
@@ -9,6 +11,7 @@ app
     .prepare()
     .then(() => {
         const server = express();
+        server.use(favicon(path.join(__dirname, 'favicon.ico')));
 
         server.get("/post/:slug", (req, res) => {
             const actualPage = "/post";
