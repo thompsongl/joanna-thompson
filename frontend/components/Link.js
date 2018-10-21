@@ -1,7 +1,8 @@
+import styled from 'styled-components'
 import Text from './Text'
 import theme from './theme'
 
-const BareLink = Text.withComponent('a')
+const BareLink = (props) => <Text as='a' {...props} />
 
 BareLink.defaultProps = {
     fontFamily: 1,
@@ -9,9 +10,10 @@ BareLink.defaultProps = {
     px: 3
 }
 
-const Link = BareLink.extend`
+const Link = styled(BareLink)`
     &:hover {
         opacity: 0.8;
+        text-decoration: underline;
     }
 `
 

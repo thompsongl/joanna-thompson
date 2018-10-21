@@ -36,9 +36,9 @@ class Menu extends Component {
                     as={`/${item.post_name}`}
                     href={`/${item.post_name}?slug=${item.post_name}&apiRoute=pages`}
                 >
-                    <Button.link>
+                    <Button as='a'>
                         <Text fontSize={0}>{item.title}</Text>
-                    </Button.link>
+                    </Button>
                 </Link>
             )
         }

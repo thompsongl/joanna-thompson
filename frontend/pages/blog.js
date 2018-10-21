@@ -15,6 +15,7 @@ import Text from '../components/Text'
 import { Config } from "../config.js";
 
 const BlogCard = Box.withComponent('a');
+const Section = Box.withComponent('section');
 
 class Blog extends Component {
     static async getInitialProps(context) {
@@ -33,7 +34,11 @@ class Blog extends Component {
     render() {
         return (
             <Layout {...this.props}>
-                <Heading>{this.props.page.title && this.props.page.title.rendered}</Heading>
+                <Section bg={'green.2'}>
+                    <Container py={[9, 10]}>
+                        <Heading fontSize={[4, 5]}>{this.props.page.title && this.props.page.title.rendered}</Heading>
+                    </Container>
+                </Section>
                 <Container>
                     <Flex mt={5} mb={8} flexWrap='wrap' justifyContent='center'>
                         {!!this.props.posts.length ? (

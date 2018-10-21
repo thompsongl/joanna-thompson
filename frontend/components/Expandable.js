@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Box from './Box'
+import Link from './Link'
 import Text from './Text'
 import theme from './theme'
 
@@ -8,7 +9,7 @@ const ExContent = styled.div`
     display: none;
 `
 
-const ExTitle = styled.label`
+const ExTitle = styled(Link)`
     display: block;
     cursor: pointer;
 `
@@ -27,19 +28,19 @@ const ExTrigger = styled.input`
 `
 
 const Expandable = ({children, title}) => (
-    <Box position="relative" my={3}>
+    <Box position="relative" my={4}>
         <ExTrigger
             id={title.replace(/ /g,'_')}
             value={title}
             name={'Expandable'}
             type="checkbox"
         />
-        <ExTitle htmlFor={title.replace(/ /g,'_')}>
-            <Text textAlign='center'>{title}</Text>
+    <ExTitle as='label' htmlFor={title.replace(/ /g,'_')}>
+            <Text as='span'>{title}</Text>
         </ExTitle>
         <ExContent>
-            <Box mb={4} mt={2}>
-                <Text.p fontSize={1} textAlign='center' color={'gray.8'}>{children}</Text.p>
+            <Box mb={5} mt={2}>
+                <Text as='p' fontSize={1} color={'gray.8'}>{children}</Text>
             </Box>
         </ExContent>
     </Box>

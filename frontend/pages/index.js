@@ -3,15 +3,18 @@ import React, { Component } from "react";
 import fetch from "isomorphic-unfetch";
 import Link from "next/link";
 import Box from '../components/Box'
+import BareLink from '../components/Link'
 import Button from '../components/Button'
 import Container from '../components/Container'
 import Divider from '../components/Divider'
 import Expandable from '../components/Expandable'
 import Flex from '../components/Flex'
 import Heading from '../components/Heading'
+import LazyBackground from "../components/LazyBackground";
 import Menu from "../components/Menu";
 import PageWrapper from "../components/PageWrapper";
 import Social from "../components/Social";
+import Testimonials from "../components/Testimonials";
 import Text from '../components/Text'
 import theme from "../components/theme.js"
 import { Config } from "../config.js";
@@ -34,9 +37,9 @@ class Index extends Component {
             <Layout {...this.props}>
                 <Section bg={'green.2'}>
                     <Container px={[3, 4]} py={[8, 9]}>
-                        <Text.p fontSize={4} textAlign='center' fontFamily={1} color='black'>
+                        <Text as='p' fontSize={4} textAlign='center' fontFamily={1} color='black'>
                             {this.props.page.acf.intro_text}
-                        </Text.p>
+                        </Text>
                     </Container>
                 </Section>
                 <Section>
@@ -50,10 +53,10 @@ class Index extends Component {
                             </Box>
                             <Flex width={['100%', '60%']} flexDirection='column' justifyContent='space-between' pl={[0, 3]}>
                                 <Box>
-                                    <Heading textAlign={['center', 'left']}>About Me</Heading>
-                                    <Text.p color='bodytext' textAlign={['center', 'left']}>
+                                    <Heading as='h2' textAlign={['center', 'left']}>About Me</Heading>
+                                    <Text as='p' color='bodytext' textAlign={['center', 'left']}>
                                         {this.props.page.acf.about_me}
-                                    </Text.p>
+                                    </Text>
                                 </Box>
                                 {this.props.businessData && (
                                     <Flex alignItems='center' justifyContent={['center', 'flex-start']} mt={2}>
@@ -65,11 +68,11 @@ class Index extends Component {
 
                         <Divider my={6} />
 
-                        <Heading>How I Can Help</Heading>
+                        <Heading as='h2'>How I Can Help</Heading>
                         <List flexWrap='wrap' justifyContent='center' mt={2}>
                             {this.props.businessData && this.props.businessData.acf.services.map((item, key) => (
                                 <ListItem key={key} py={2} px={3}>
-                                    <Text.span color="gray.8">{item.service_name}</Text.span>
+                                    <Text as='span' color="gray.8">{item.service_name}</Text>
                                 </ListItem>
                             ))}
                         </List>
@@ -77,7 +80,7 @@ class Index extends Component {
                 </Section>
                 <Section bg={'green.2'}>
                     <Container py={8}>
-                        <Heading>Prices</Heading>
+                        <Heading as='h2'>Prices</Heading>
                     </Container>
                 </Section>
                 <Section>
@@ -88,8 +91,8 @@ class Index extends Component {
                                     <Flex width={'100%'} py={3} flexWrap='wrap'>
                                         <Flex width={['100%', '40%']} flexDirection='column' justifyContent='space-between'>
                                             <Box>
-                                                <Heading textAlign={['center', 'left']} fontSize={3} lineHeight='1'>{item.name}</Heading>
-                                                <Text fontSize={2} textAlign={['center', 'left']} pt={1}><em>{item.cost ? `$${item.cost}` : 'Contact me for pricing'}<Text.span fontSize={2}>{item.period && `/${item.period}`}</Text.span ></em></Text>
+                                                <Heading as='h3' textAlign={['center', 'left']} fontSize={3} lineHeight='1'>{item.name}</Heading>
+                                                <Text fontSize={2} textAlign={['center', 'left']} pt={1}><em>{item.cost ? `$${item.cost}` : 'Contact me for pricing'}<Text as='span' fontSize={2}>{item.period && `/${item.period}`}</Text></em></Text>
                                             </Box>
                                             <Box>
                                                 {!!item.notes.length && item.notes.map((note, notekey) => (
@@ -99,7 +102,7 @@ class Index extends Component {
                                             <Box display={['none', 'block']}>
                                                 <Text textAlign={['center', 'left']} mb={2} >
                                                     <Link as={`/contact`} href={`/contact?slug=contact&apiRoute=pages`}>
-                                                        <Button.link><Text fontSize={1}>Get Started</Text></Button.link>
+                                                        <Button as='a'><Text fontSize={1}>Get Started</Text></Button>
                                                     </Link>
                                                 </Text>
                                             </Box>
@@ -120,30 +123,34 @@ class Index extends Component {
                         <Box display={['block', 'none']}>
                             <Text textAlign='center' mb={6} >
                                 <Link as={`/contact`} href={`/contact?slug=contact&apiRoute=pages`}>
-                                    <Button.link><Text fontSize={1}>Get Started</Text></Button.link>
+                                    <Button as='a'><Text fontSize={1}>Get Started</Text></Button>
                                 </Link>
                             </Text>
                         </Box>
                         {this.props.businessData && <Text color={'gray.8'} textAlign='center'><em>{this.props.businessData.acf.prices_note}</em></Text>}
+                        {this.props.businessData && <Box mt={4}>
+                            <Text textAlign='center'><Link as={`/faq`} href={`/faq?slug=faq&apiRoute=pages`}><BareLink style={{textDecoration: 'underline'}}>{this.props.businessData.acf.faq_link}</BareLink></Link></Text>
+                        </Box>}
                     </Container>
                 </Section>
-                <Section py={'200px'}
-                    style={{
-                        backgroundImage: 'url("/static/images/rack.jpg")',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundPosition: 'center center'
-                    }}
-                />
+                <LazyBackground src='/static/images/rack.jpg'>
+                    <Section py={'200px'}
+                        bg={'green.2'}
+                        style={{
+                            backgroundSize: 'cover',
+                            backgroundRepeat: 'no-repeat',
+                            backgroundPosition: 'center center'
+                        }}
+                        aria-hidden={true}
+                    />
+                </LazyBackground>
                 <Section>
                     <Container py={6} maxWidth={0}>
-                        <Heading>FAQ</Heading>
+                        <Heading>Testimonials</Heading>
                         <Box mt={3}>
-                            {this.props.businessData && this.props.businessData.acf.faq.map((item, key) => (
-                                <Expandable key={key} title={item.question}>
-                                    {item.answer}
-                                </Expandable>
-                            ))}
+                            {this.props.businessData && <Box py={2}>
+                                <Testimonials items={this.props.businessData.acf.testimonial} />
+                            </Box>}
                         </Box>
                     </Container>
                 </Section>

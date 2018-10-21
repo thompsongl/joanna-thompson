@@ -10,7 +10,7 @@ const theme = {
     '740px'
   ],
   fonts: [
-    `'Work Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'`,
+    `'Libre Franklin', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'`,
     `'Belleza', 'serif'`
   ],
   lineHeight: 1.5,
@@ -58,7 +58,8 @@ const theme = {
     40,
     48,
     64,
-    80
+    80,
+    96
   ],
   fontSizes: [
     12,

@@ -1,6 +1,6 @@
+import styled from 'styled-components'
 import Box from './Box'
 import theme from './theme'
-import styled from 'styled-components'
 
 const InputButton = Box.withComponent('input')
 
@@ -14,19 +14,22 @@ InputButton.defaultProps = {
     borderRadius: 1
 }
 
-const Button = InputButton.extend`
+const Button = styled(InputButton)`
+    appearance: none;
     &:hover {
         opacity: 0.9;
     }
 `
 
-Button.link = Button.withComponent('a')
 Button.button = styled('button')`
     appearance: none;
     background: transparent;
     border: none;
     cursor: pointer;
     padding-top: 2px;
+    &:hover {
+        opacity: 0.9;
+    }
 `;
 
 

@@ -12,6 +12,4 @@ Input.defaultProps = {
     borderColor: 'gray.8'
 }
 
-Input.textarea = Input.withComponent('textarea')
-
 export default Input

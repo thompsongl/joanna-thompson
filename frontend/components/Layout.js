@@ -15,7 +15,6 @@ import Menu from './Menu'
 import Social from './Social'
 import Text from './Text'
 
-const Label = Box.withComponent('label');
 const Section = Box.withComponent('section');
 const LinkedBox = Box.withComponent('a');
 
@@ -34,7 +33,8 @@ const Layout = props => (
                         <Button.button type="button" onClick={() => {
                             props.updateShouldShowBanner(false)
                         }}>
-                            <img src={`https://icon.now.sh/x/${theme.colors.white.substr(1)}`} alt='Close' />
+                            <span className="visually-hidden">Close Banner Notification</span>
+                            <img src={`https://icon.now.sh/x/${theme.colors.white.substr(1)}`} alt='close icon' aria-hidden={true} />
                         </Button.button>
                     </Flex>
                    </Flex>
@@ -46,7 +46,7 @@ const Layout = props => (
                       <Box>
                           <Link href={`/`}>
                             <a>
-                              <Heading fontSize={2} lineHeight={1.5} letterSpacing={0.2}>
+                              <Heading as='span' fontSize={2} lineHeight={1.5} letterSpacing={0.2}>
                                   Joanna Thompson
                               </Heading>
                             </a>
@@ -64,16 +64,16 @@ const Layout = props => (
             )}
             <Section bg={'green.2'}>
                 <Container py={8} maxWidth={0}>
-                    <Heading mb={2}>Subscribe</Heading>
+                    <Heading as='h3' mb={2}>Subscribe</Heading>
                     {props.businessData && <Text textAlign='center' mb={3}>{props.businessData.acf.newsletter_incentive}</Text>}
                         {/*<!-- Begin Mailchimp Signup Form -->*/}
                         <div id="mc_embed_signup">
                             <form action="https://now.us19.list-manage.com/subscribe/post?u=4549ea4a5d992521b24443fe6&amp;id=a3aa572a1b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
                                 <Flex id="mc_embed_signup_scroll">
                                     <label className="visually-hidden" htmlFor="mce-EMAIL">Email Address</label>
-                                	<Input type="email" name="EMAIL" id="mce-EMAIL" placeholder="Email Address" required />
+                                	<Input type="email" name="EMAIL" id="mce-EMAIL" placeholder="Email Address" defaultValue="" required />
                                     {/*<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->*/}
-                                    <div style={{position: "absolute", left: "-5000px"}} aria-hidden="true"><input type="text" name="b_4549ea4a5d992521b24443fe6_a3aa572a1b" tabIndex="-1" value="" /></div>
+                                    <div style={{position: "absolute", left: "-5000px"}} aria-hidden="true"><input type="text" name="b_4549ea4a5d992521b24443fe6_a3aa572a1b" tabIndex="-1" defaultValue="" /></div>
                                     <Button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" ml={2} />
                                 </Flex>
                             </form>
