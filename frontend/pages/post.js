@@ -2,8 +2,9 @@ import Layout from "../components/Layout.js";
 import React, { Component } from "react";
 import fetch from "isomorphic-unfetch";
 import Error from "next/error";
-import PageWrapper from "../components/PageWrapper.js";
-import Menu from "../components/Menu.js";
+import Box from "../components/Box";
+import PageWrapper from "../components/PageWrapper";
+import Text from "../components/Text";
 import { Config } from "../config.js";
 
 class Post extends Component {
@@ -21,12 +22,15 @@ class Post extends Component {
 
         return (
             <Layout {...this.props}>
-                <h1>{this.props.post.title.rendered}</h1>
-                <div
-                    dangerouslySetInnerHTML={{
-                        __html: this.props.post.content.rendered
-                    }}
-                />
+                <Box mb={10} pt={3} pb={5}>
+                    <h1>{this.props.post.title.rendered}</h1>
+                    <Text
+                        lineHeight="1.65"
+                        dangerouslySetInnerHTML={{
+                            __html: this.props.post.content.rendered
+                        }}
+                    />
+                </Box>
             </Layout>
         );
     }
