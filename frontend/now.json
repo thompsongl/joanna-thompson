@@ -1,6 +1,6 @@
 {
-  "name": "joanna-thompson",
-  "alias": ["joanna-thompson"],
+  "name": "joanna-thompson-splash",
+  "alias": ["joanna-thompson-splash", "joanna-thompson.com"],
   "type": "docker",
   "public": false
 }
