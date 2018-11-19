@@ -134,7 +134,7 @@ class Index extends Component {
                     </Container>
                 </Section>
                 <LazyBackground src='/static/images/rack.jpg'>
-                    <Section py={'200px'}
+                    <Section py={['100px', '150px', '200px']}
                         bg={'brand'}
                         style={{
                             backgroundSize: 'cover',
