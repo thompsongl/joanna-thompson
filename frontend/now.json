@@ -1,7 +1,7 @@
 {
   "version": 1,
   "name": "joanna-thompson",
-  "alias": ["joanna-thompson", "joanna-thompson.com"],
+  "alias": ["joanna-thompson.com"],
   "type": "docker",
   "public": false
 }
