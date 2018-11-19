@@ -49,3 +49,10 @@ figure {
   position:absolute;
   margin: -1px;
 }
+.post a {
+  color: inherit;
+  text-decoration: underline;
+}
+.post a:hover {
+  background-color: #eefbee;
+}
