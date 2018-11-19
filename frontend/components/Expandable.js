@@ -23,7 +23,7 @@ const ExTrigger = styled.input`
     display: block!important;
   }
   &:focus ~ ${ExTitle} {
-    outline: solid ${theme.colors.green[2]};
+    outline: solid ${theme.colors.brand};
   }
 `
 

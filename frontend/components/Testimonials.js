@@ -7,7 +7,7 @@ import Text from './Text';
 import theme from './theme'
 
 const Blockquote = styled(Text)`
-    border-left: 3px solid ${theme.colors.green[2]};
+    border-left: 3px solid ${theme.colors.brand};
     padding-left: ${theme.space[3]}px;
 `
 

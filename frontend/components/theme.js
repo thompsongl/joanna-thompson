@@ -15,6 +15,7 @@ const theme = {
   ],
   lineHeight: 1.5,
   colors: {
+    brand: '#eefbee',
     bodytext: '#24292e',
     black: black,
     white: '#fff',

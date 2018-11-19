@@ -35,7 +35,7 @@ class Index extends Component {
     render() {
         return (
             <Layout {...this.props}>
-                <Section bg={'green.2'}>
+                <Section bg={'brand'}>
                     <Container px={[3, 4]} py={[8, 9]}>
                         <Text as='p' fontSize={4} textAlign='center' fontFamily={1} color='black'>
                             {this.props.page.acf.intro_text}
@@ -78,7 +78,7 @@ class Index extends Component {
                         </List>
                     </Container>
                 </Section>
-                <Section bg={'green.2'}>
+                <Section bg={'brand'}>
                     <Container py={8}>
                         <Heading as='h2'>Prices</Heading>
                     </Container>
@@ -135,7 +135,7 @@ class Index extends Component {
                 </Section>
                 <LazyBackground src='/static/images/rack.jpg'>
                     <Section py={'200px'}
-                        bg={'green.2'}
+                        bg={'brand'}
                         style={{
                             backgroundSize: 'cover',
                             backgroundRepeat: 'no-repeat',

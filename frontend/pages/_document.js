@@ -29,6 +29,7 @@ export default class MyDocument extends Document {
             <meta property="og:title" content="Joanna Thompson | Professional Organizing" />
             <meta property="og:type" content="website" />
             <meta property="og:image" content="https://wp.joanna-thompson.com/wp-content/uploads/2018/10/boxes.jpg" />
+            <meta name="google-site-verification" content="_pGpTGZEnuUGx1YU27atkiyzldRegtPFLsIdbBF7Eb0" />
             <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
             {this.props.styleTags}
         </Head>

@@ -30,7 +30,7 @@ const PageWrapper = Comp => (
         let messagesMatch = true;
         if (typeof shouldShow !== 'undefined') {
             messagesMatch = message === this.props.businessData.acf.newsletter_banner;
-            shouldShowBanner = shouldShow === 'true' || !messagesMatch;
+            shouldShowBanner = !!this.props.businessData.acf.newsletter_banner.length && (shouldShow === 'true' || !messagesMatch);
         }
         if (typeof shouldShow !== 'undefined' || !messagesMatch) {
             storage.setItem('shouldShowBanner', shouldShowBanner)

@@ -25,7 +25,7 @@ class Post extends Component {
                 <Box mb={10} pt={3} pb={5}>
                     <h1>{this.props.post.title.rendered}</h1>
                     <Text
-                        lineHeight="1.65"
+                        lineHeight="1.85"
                         dangerouslySetInnerHTML={{
                             __html: this.props.post.content.rendered
                         }}

@@ -34,6 +34,10 @@ a {
 }
 img {
     max-width: 100%;
+    height: auto;
+}
+figure {
+  margin: 0;
 }
 .visually-hidden {
   border: 0;

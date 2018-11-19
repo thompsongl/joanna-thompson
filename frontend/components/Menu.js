@@ -18,14 +18,14 @@ class Menu extends Component {
 
   render() {
       const menuItems = this.props.menu.items.map((item, index) => {
-        if (item.post_name === "blog") {
+        if (["blog", "faq"].includes(item.post_name)) {
             return (
                 <Link
                     key={item.ID}
                     as={`/${item.post_name}`}
                     href={`/${item.post_name}?slug=${item.post_name}&apiRoute=pages`}
                 >
-                    <BaseLink>{item.post_title}</BaseLink>
+                    <BaseLink pl="0">{item.post_title}</BaseLink>
                 </Link>
             )
         }

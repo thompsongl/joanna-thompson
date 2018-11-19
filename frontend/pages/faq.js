@@ -23,7 +23,7 @@ class Faq extends Component {
     render() {
         return (
             <Layout {...this.props}>
-                <Section bg={'green.2'}>
+                <Section bg={'brand'}>
                     <Container py={[9, 10]}>
                         <Heading fontSize={[4, 5]}>{this.props.page.title && this.props.page.title.rendered}</Heading>
                     </Container>

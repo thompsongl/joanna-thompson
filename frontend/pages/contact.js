@@ -4,6 +4,7 @@ import fetch from "isomorphic-unfetch";
 import BareLink from "../components/Link";
 import Box from '../components/Box'
 import Container from '../components/Container'
+import Divider from '../components/Divider'
 import Heading from '../components/Heading'
 import Text from '../components/Text'
 import PageWrapper from "../components/PageWrapper.js";
@@ -24,7 +25,7 @@ class Contact extends Component {
     render() {
         return (
             <Layout {...this.props}>
-                <Section bg={'green.2'}>
+                <Section bg={'brand'}>
                     <Container py={[9, 10]}>
                         <Heading fontSize={[4, 5]}>{this.props.page.title && this.props.page.title.rendered}</Heading>
                         <Box mt={3} maxWidth={0} mx='auto'>
@@ -34,6 +35,15 @@ class Contact extends Component {
                 </Section>
                 <Section>
                     <Container py={4}>
+                        <Box mt={3} maxWidth={0} mx='auto'>
+                            {this.props.page && <Text
+                                textAlign='center'
+                                dangerouslySetInnerHTML={{
+                                    __html: this.props.page.content.rendered
+                                }}
+                            />}
+                        </Box>
+                        <Divider mt={6} mb={4} />
                         <iframe src="https://calendly.com/joanna-thompson/?embed_domain=www.joanna-thompson.com&embed_type=Inline" width="100%" height="600px" frameBorder="0"></iframe>
                     </Container>
                 </Section>

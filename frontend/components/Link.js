@@ -7,7 +7,8 @@ const BareLink = (props) => <Text as='a' {...props} />
 BareLink.defaultProps = {
     fontFamily: 1,
     color: 'black',
-    px: 3
+    pr: 3,
+    pl: 3
 }
 
 const Link = styled(BareLink)`

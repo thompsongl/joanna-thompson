@@ -62,7 +62,7 @@ const Layout = props => (
             ) : (
               <React.Fragment>{props.children}</React.Fragment>
             )}
-            <Section bg={'green.2'}>
+            <Section bg={'brand'}>
                 <Container py={8} maxWidth={0}>
                     <Heading as='h3' mb={2}>Subscribe</Heading>
                     {props.businessData && <Text textAlign='center' mb={3}>{props.businessData.acf.newsletter_incentive}</Text>}
