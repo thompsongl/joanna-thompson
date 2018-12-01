@@ -57,10 +57,10 @@ class Index extends Component {
                   </Text>
                 </Box>
                 {this.props.businessData && (
-                <Flex alignItems="center" justifyContent={['center', 'flex-start']} mt={2}>
-                  <Social businessData={this.props.businessData} theme={theme} />
-                </Flex>
-                            )}
+                  <Flex alignItems="center" justifyContent={['center', 'flex-start']} mt={2}>
+                    <Social businessData={this.props.businessData} theme={theme} />
+                  </Flex>
+                )}
               </Flex>
             </Flex>
 
@@ -142,6 +142,16 @@ class Index extends Component {
                 <Text textAlign="center"><Link as="/faq" href="/faq?slug=faq&apiRoute=pages"><BareLink style={{ textDecoration: 'underline' }}>{this.props.businessData.acf.faq_link}</BareLink></Link></Text>
               </Box>
             )}
+            <Box mt={4}>
+              <Text textAlign="center">
+                <BareLink
+                  href="https://squareup.com/gift/KWS7GW7Q0D3C7/order"
+                  style={{ textDecoration: 'underline' }}
+                >
+                  {'Not looking for yourself? Gift cards are available!'}
+                </BareLink>
+              </Text>
+            </Box>
           </Container>
         </Section>
         <LazyBackground src="/static/images/rack.jpg">

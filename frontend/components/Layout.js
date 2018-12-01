@@ -18,6 +18,12 @@ import Text from './Text';
 const Section = Box.withComponent('section');
 const LinkedBox = Box.withComponent('a');
 
+const BannerBox = ({ children, ...props }) => (
+  <LinkedBox style={{ flexGrow: 1 }} pl={4} pr={1} {...props}>
+    <Text color={theme.colors.white} textAlign="center">{children}</Text>
+  </LinkedBox>
+);
+
 const Layout = ({
   businessData, children, headerMenu, post, shouldShowBanner, updateShouldShowBanner,
 }) => (
@@ -26,11 +32,16 @@ const Layout = ({
       {shouldShowBanner && (
       <Section bg="black">
         <Flex justifyContent="space-between" alignItems="center" py={1}>
-          <Link as="/contact" href="/contact?slug=contact&apiRoute=pages">
-            <LinkedBox style={{ flexGrow: 1 }} pl={4} pr={1}>
-              <Text color={theme.colors.white} textAlign="center">{businessData.acf.newsletter_banner}</Text>
-            </LinkedBox>
-          </Link>
+          {businessData.acf.banner_link
+            && !!businessData.acf.banner_link.length ? (
+              <BannerBox href={businessData.acf.banner_link}>
+                {businessData.acf.banner_text}
+              </BannerBox>
+          ) : (
+            <Link as="/contact" href="/contact?slug=contact&apiRoute=pages">
+              <BannerBox>{businessData.acf.banner_text}</BannerBox>
+            </Link>
+          )}
           <Flex alignItems="center" style={{ flexShrink: 0 }}>
             <Button.button
               type="button"

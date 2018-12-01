@@ -30,12 +30,12 @@ const PageWrapper = Comp => (
         let shouldShowBanner = true;
         let messagesMatch = true;
         if (typeof shouldShow !== 'undefined') {
-            messagesMatch = message === this.props.businessData.acf.newsletter_banner;
-            shouldShowBanner = !!this.props.businessData.acf.newsletter_banner.length && (shouldShow === 'true' || !messagesMatch);
+            messagesMatch = message === this.props.businessData.acf.banner_text;
+            shouldShowBanner = !!this.props.businessData.acf.banner_text.length && (shouldShow === 'true' || !messagesMatch);
         }
         if (typeof shouldShow !== 'undefined' || !messagesMatch) {
             storage.setItem('shouldShowBanner', shouldShowBanner);
-            storage.setItem('bannerMessage', this.props.businessData.acf.newsletter_banner);
+            storage.setItem('bannerMessage', this.props.businessData.acf.banner_text);
         }
         this.updateShouldShowBanner(shouldShowBanner);
     }
