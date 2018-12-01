@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 import {
   space,
   width,
@@ -10,8 +10,8 @@ import {
   display,
   border,
   borderColor,
-  borderRadius
-} from 'styled-system'
+  borderRadius,
+} from 'styled-system';
 
 const Box = styled.div`
   ${space}
@@ -25,7 +25,7 @@ const Box = styled.div`
   ${border}
   ${borderColor}
   ${borderRadius}
-`
+`;
 
 Box.propTypes = {
   ...space.propTypes,
@@ -38,7 +38,7 @@ Box.propTypes = {
   ...display.propTypes,
   ...border.propTypes,
   ...borderColor.propTypes,
-  ...borderRadius.propTypes
-}
+  ...borderRadius.propTypes,
+};
 
-export default Box
+export default Box;

@@ -1,30 +1,43 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 class LazyBackground extends React.Component {
-    state = {
-        imageReady: false
-    }
-    componentDidMount() {
-        const img = new Image();
-        img.onload = () => {
-          this.setState({
-            imageReady: true
+  state = {
+    imageReady: false,
+  }
+
+  componentDidMount() {
+    const img = new Image();
+    img.onload = () => {
+      this.setState({
+        imageReady: true,
+      });
+    };
+    img.src = this.props.src;
+  }
+
+  render() {
+    const { children } = this.props;
+    return (
+      this.state.imageReady ? (
+        React.Children.map(children, child => (
+          React.cloneElement(child, {
+            style: {
+              backgroundImage: `url(${this.props.src})`,
+              ...child.props.style,
+            },
           })
-        };
-        img.src = this.props.src;
-    }
-    render(){
-        return(
-            this.state.imageReady ? React.Children.map(this.props.children, (child) => {
-                return React.cloneElement(child, {
-                    style: {
-                        backgroundImage: `url(${this.props.src})`,
-                        ...child.props.style
-                    }
-                });
-            }) : this.props.children
-        )
-    }
+        ))
+      ) : (
+        this.props.children
+      )
+    );
+  }
 }
+
+LazyBackground.propTypes = {
+  children: PropTypes.node.isRequired,
+  src: PropTypes.string.isRequired,
+};
 
 export default LazyBackground;

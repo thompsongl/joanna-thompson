@@ -1,0 +1,31 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "rules": {
+    "jsx-a11y/anchor-is-valid": [0, {
+      "components": ["Link"]
+    }],
+    "jsx-a11y/label-has-associated-control": [2, {
+      "controlComponents": ["Input"]
+    }],
+    "jsx-a11y/label-has-for": [2, {
+      "required": {
+        "every": ["id"]
+      }
+    }],
+    "react/destructuring-assignment": [2, {
+      "ignoreClassFields": true
+    }],
+    "react/no-danger": 0,
+    "react/jsx-filename-extension": [1, {
+      "extensions": [".js", ".jsx"]
+    }],
+
+    "template-curly-spacing" : "off",
+    "indent" : "off"
+  }
+}

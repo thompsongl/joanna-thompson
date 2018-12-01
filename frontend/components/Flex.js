@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 import {
   space,
   width,
@@ -7,9 +7,8 @@ import {
   justifyContent,
   flexWrap,
   flexDirection,
-  propTypes
-} from 'styled-system'
-import theme from './theme'
+  propTypes,
+} from 'styled-system';
 
 const Flex = styled.div`
   display: flex;
@@ -20,7 +19,7 @@ const Flex = styled.div`
   ${justifyContent}
   ${flexWrap}
   ${flexDirection}
-`
+`;
 Flex.propTypes = {
   ...propTypes.space,
   ...propTypes.width,
@@ -28,7 +27,7 @@ Flex.propTypes = {
   ...propTypes.alignItems,
   ...propTypes.justifyContent,
   ...propTypes.flexWrap,
-  ...propTypes.flexDirection
-}
+  ...propTypes.flexDirection,
+};
 
-export default Flex
+export default Flex;

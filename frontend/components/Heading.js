@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import Text from './Text'
+import React from 'react';
+import Text from './Text';
 
-const Heading = (props) => <Text {...props} />
+const Heading = props => <Text {...props} />;
 
 Heading.defaultProps = {
   fontSize: 4,
@@ -11,7 +11,7 @@ Heading.defaultProps = {
   textAlign: 'center',
   fontFamily: 1,
   letterSpacing: 1,
-  color: 'black'
-}
+  color: 'black',
+};
 
-export default Heading
+export default Heading;

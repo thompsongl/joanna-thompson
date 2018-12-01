@@ -12,7 +12,8 @@
         "docker:stop": "docker stop frontend",
         "docker:start": "docker start frontend && yarn run docker:logs",
         "docker:logs": "docker logs -f frontend",
-        "deploy": "yarn run docker:build && yarn run docker:clean && yarn run docker:run"
+        "deploy": "yarn run docker:build && yarn run docker:clean && yarn run docker:run",
+        "lint": "./node_modules/.bin/eslint pages/ components/"
     },
     "keywords": [],
     "author": "",
@@ -22,6 +23,7 @@
         "express": "^4.16.2",
         "isomorphic-unfetch": "^2.0.0",
         "next": "latest",
+        "prop-types": "^15.6.2",
         "react": "^16.3.0",
         "react-dom": "^16.3.0",
         "serve-favicon": "^2.5.0",
@@ -30,8 +32,14 @@
     },
     "devDependencies": {
         "autoprefixer": "7.1.5",
+        "babel-eslint": "^10.0.1",
         "babel-plugin-module-resolver": "^2.7.1",
         "babel-plugin-wrap-in-js": "^1.1.0",
+        "eslint": "^5.9.0",
+        "eslint-config-airbnb": "^17.1.0",
+        "eslint-plugin-import": "^2.14.0",
+        "eslint-plugin-jsx-a11y": "^6.1.2",
+        "eslint-plugin-react": "^7.11.1",
         "glob": "^7.1.2",
         "normalize.css": "^7.0.0",
         "postcss-easy-import": "^3.0.0",

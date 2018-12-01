@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 import {
   space,
   color,
@@ -7,8 +7,8 @@ import {
   fontWeight,
   lineHeight,
   letterSpacing,
-  textAlign
-} from 'styled-system'
+  textAlign,
+} from 'styled-system';
 
 const Text = styled.div`
   ${space}
@@ -19,7 +19,7 @@ const Text = styled.div`
   ${lineHeight}
   ${letterSpacing}
   ${textAlign}
-`
+`;
 
 Text.propTypes = {
   ...space.propTypes,
@@ -29,7 +29,7 @@ Text.propTypes = {
   ...fontWeight.propTypes,
   ...lineHeight.propTypes,
   ...letterSpacing.propTypes,
-  ...textAlign.propTypes
-}
+  ...textAlign.propTypes,
+};
 
-export default Text
+export default Text;

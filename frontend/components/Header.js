@@ -1,9 +1,9 @@
-import Box from './Box'
+import Box from './Box';
 
-const Header = Box.withComponent('header')
+const Header = Box.withComponent('header');
 
 Header.defaultProps = {
-    py: 2
-}
+  py: 2,
+};
 
-export default Header
+export default Header;

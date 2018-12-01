@@ -1,10 +1,10 @@
-import Box from './Box'
+import Box from './Box';
 
-const Footer = Box.withComponent('footer')
+const Footer = Box.withComponent('footer');
 
 Footer.defaultProps = {
-    textAlign: 'center',
-    py: 2
-}
+  textAlign: 'center',
+  py: 2,
+};
 
-export default Footer
+export default Footer;

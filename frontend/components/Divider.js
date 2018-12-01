@@ -1,6 +1,8 @@
-import styled from 'styled-components'
-import theme from './theme'
-import { space, width, borderColor, propTypes } from 'styled-system'
+import styled from 'styled-components';
+import {
+  space, width, borderColor, propTypes,
+} from 'styled-system';
+import theme from './theme';
 
 const Divider = styled.hr`
     border: 0;
@@ -9,21 +11,21 @@ const Divider = styled.hr`
     ${space}
     ${width}
     ${borderColor};
-`
+`;
 
-Divider.displayName = 'Divider'
+Divider.displayName = 'Divider';
 
 Divider.defaultProps = {
-    borderColor: 'brand',
-    theme: theme,
-    ml: 0,
-    mr: 0
-}
+  borderColor: 'brand',
+  theme,
+  ml: 0,
+  mr: 0,
+};
 
 Divider.propTypes = {
-    ...propTypes.space,
-    ...propTypes.width,
-    ...propTypes.borderColor
-}
+  ...propTypes.space,
+  ...propTypes.width,
+  ...propTypes.borderColor,
+};
 
-export default Divider
+export default Divider;
