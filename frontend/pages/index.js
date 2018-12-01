@@ -94,7 +94,7 @@ class Index extends Component {
                         <Heading as="h3" textAlign={['center', 'left']} fontSize={3} lineHeight="1">{item.name}</Heading>
                         <Text fontSize={2} textAlign={['center', 'left']} pt={1}>
                           <em>
-                            {item.cost ? `$${item.cost}` : 'Contact me for pricing'}
+                            {item.cost && !!item.cost.length ? `${item.cost}` : 'Contact me for pricing'}
                             <Text as="span" fontSize={2}>{item.period && `/${item.period}`}</Text>
                           </em>
                         </Text>
@@ -104,13 +104,6 @@ class Index extends Component {
                           // eslint-disable-next-line react/no-array-index-key
                           <Text key={notekey} fontSize={1} lineHeight={1} color="gray.8" textAlign={['center', 'left']}><em>{note.note}</em></Text>
                         ))}
-                      </Box>
-                      <Box display={['none', 'block']}>
-                        <Text textAlign={['center', 'left']} mb={2}>
-                          <Link as="/contact" href="/contact?slug=contact&apiRoute=pages">
-                            <Button as="a"><Text fontSize={1}>Get Started</Text></Button>
-                          </Link>
-                        </Text>
                       </Box>
                     </Flex>
                     <Box width={['100%', '60%']} pl={4}>
@@ -127,7 +120,7 @@ class Index extends Component {
                 </Box>
               ))}
             </Box>
-            <Box display={['block', 'none']}>
+            <Box>
               <Text textAlign="center" mb={6}>
                 <Link as="/contact" href="/contact?slug=contact&apiRoute=pages">
                   <Button as="a"><Text fontSize={1}>Get Started</Text></Button>
