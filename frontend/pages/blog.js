@@ -51,7 +51,6 @@ class Blog extends Component {
                           >
                             <Heading as={BareLink} textAlign={['center', 'left']} fontSize={3} px="0">{post.title.rendered}</Heading>
                           </Link>
-                          <Text fontSize={1} textAlign={['center', 'left']} pt={1}><em>{new Date(post.date).toLocaleDateString('en-US')}</em></Text>
                         </Box>
                       </Flex>
                       <Box width={['100%', '60%']} pl={['0', 4]}>

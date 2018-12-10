@@ -56,3 +56,10 @@ figure {
 .post a:hover {
   background-color: #eefbee;
 }
+.post li {
+  list-style: initial;
+  margin-left: 8px;
+}
+.post figure.aligncenter {
+  text-align: center;
+}

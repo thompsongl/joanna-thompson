@@ -79,11 +79,24 @@ class Index extends Component {
         </Section>
         <Section bg="brand">
           <Container py={8}>
-            <Heading as="h2">Prices</Heading>
+            <Heading as="h2">Sessions & Packages</Heading>
           </Container>
         </Section>
         <Section>
           <Container pt={2} pb={8}>
+            <Text color="bodytext" textAlign="center">
+              {"Don't know what session to pick?"}
+              <Box>
+                <BareLink
+                  href="/static/documents/flowchart.pdf"
+                  target="_blank"
+                  fontFamily={0}
+                  style={{ textDecoration: 'underline' }}
+                >
+                  {'Find the right session for you in this guide'}
+                </BareLink>
+              </Box>
+            </Text>
             <Box flexWrap="wrap">
               {this.props.businessData && this.props.businessData.acf.prices.map((item, key) => (
                 // eslint-disable-next-line react/no-array-index-key
@@ -99,12 +112,17 @@ class Index extends Component {
                           </em>
                         </Text>
                       </Box>
-                      <Box>
-                        {!!item.notes.length && item.notes.map((note, notekey) => (
-                          // eslint-disable-next-line react/no-array-index-key
-                          <Text key={notekey} fontSize={1} lineHeight={1} color="gray.8" textAlign={['center', 'left']}><em>{note.note}</em></Text>
-                        ))}
-                      </Box>
+                      {!!item.notes.length && (
+                        <Box mb={2} pl={[4, 0]}>
+                          <Text color="gray.8"><em>This is perfect for you if:</em></Text>
+                          <ul>
+                            {item.notes.map((note, notekey) => (
+                              // eslint-disable-next-line react/no-array-index-key
+                              <li key={notekey} className="normal"><Text fontSize={1} lineHeight={1} color="gray.8">{note.note}</Text></li>
+                            ))}
+                          </ul>
+                        </Box>
+                      )}
                     </Flex>
                     <Box width={['100%', '60%']} pl={4}>
                       <Text color="gray.8"><em>Includes:</em></Text>
