@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
 import Link from 'next/link';
+import Router from 'next/router';
 import theme from './theme';
+import { trackPageView } from '../helpers';
 import Box from './Box';
 import Button from './Button';
 import Container from './Container';
@@ -24,98 +26,109 @@ const BannerBox = ({ children, ...props }) => (
   </LinkedBox>
 );
 
-const Layout = ({
-  businessData, children, headerMenu, post, shouldShowBanner, updateShouldShowBanner,
-}) => (
-  <ThemeProvider theme={theme}>
-    <Box color="bodytext">
-      {shouldShowBanner && (
-      <Section bg="black">
-        <Flex justifyContent="space-between" alignItems="center" py={1}>
-          {businessData.acf.banner_link
-            && !!businessData.acf.banner_link.length ? (
-              <BannerBox href={businessData.acf.banner_link}>
-                {businessData.acf.banner_text}
-              </BannerBox>
-          ) : (
-            <Link as="/contact" href="/contact?slug=contact&apiRoute=pages">
-              <BannerBox>{businessData.acf.banner_text}</BannerBox>
-            </Link>
-          )}
-          <Flex alignItems="center" style={{ flexShrink: 0 }}>
-            <Button.button
-              type="button"
-              onClick={() => {
-                updateShouldShowBanner(false);
-              }}
-            >
-              <span className="visually-hidden">Close Banner Notification</span>
-              <img src={`https://icon.now.sh/x/${theme.colors.white.substr(1)}`} alt="close icon" aria-hidden />
-            </Button.button>
-          </Flex>
-        </Flex>
-      </Section>
-      )}
-      <Header>
-        <Container>
-          <Flex justifyContent="space-between" alignItems="center">
-            <Box>
-              <Link href="/">
-                <a>
-                  <Heading as="span" fontSize={2} lineHeight={1.5} letterSpacing={0.2}>
-                    Joanna Thompson
-                  </Heading>
-                </a>
-              </Link>
-            </Box>
-            <Menu menu={headerMenu} />
-          </Flex>
-        </Container>
-      </Header>
-      <main>
-        {post && post.type === 'post' ? (
-          <Container>{children}</Container>
-        ) : (
-          <React.Fragment>{children}</React.Fragment>
-        )}
-        <Section bg="brand">
-          <Container py={8} maxWidth={0}>
-            <Heading as="h3" mb={2}>Subscribe</Heading>
-            {businessData && <Text textAlign="center" mb={3}>{businessData.acf.newsletter_incentive}</Text>}
-            {/* <!-- Begin Mailchimp Signup Form --> */}
-            <div id="mc_embed_signup">
-              <form action="https://now.us19.list-manage.com/subscribe/post?u=4549ea4a5d992521b24443fe6&amp;id=a3aa572a1b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
-                <Flex id="mc_embed_signup_scroll">
-                  <label className="visually-hidden" htmlFor="mce-EMAIL">Email Address</label>
-                  <Input type="email" name="EMAIL" id="mce-EMAIL" placeholder="Email Address" defaultValue="" required />
-                  {/*
-                    <!-- real people should not fill this in and expect good things
-                    do not remove this or risk form bot signups-->
-                  */}
-                  <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true"><input type="text" name="b_4549ea4a5d992521b24443fe6_a3aa572a1b" tabIndex="-1" defaultValue="" /></div>
-                  <Button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" ml={2} />
-                </Flex>
-              </form>
-            </div>
-            {/* <!--End mc_embed_signup--> */}
-          </Container>
-        </Section>
-      </main>
-      <Footer>
-        <Container>
-          <Text textAlign="center">
-            © Joanna Thompson &middot; Omaha, NE
-          </Text>
-          {businessData && (
-            <Flex alignItems="center" justifyContent="center" mt={2}>
-              <Social businessData={businessData} theme={theme} />
+class Layout extends React.Component {
+  componentDidMount() {
+    Router.onRouteChangeComplete = (url) => {
+      trackPageView(url);
+    };
+  }
+
+  render() {
+    const {
+      businessData, children, headerMenu, post, shouldShowBanner, updateShouldShowBanner,
+    } = this.props;
+    return (
+      <ThemeProvider theme={theme}>
+        <Box color="bodytext">
+          {shouldShowBanner && (
+          <Section bg="black">
+            <Flex justifyContent="space-between" alignItems="center" py={1}>
+              {businessData.acf.banner_link
+                && !!businessData.acf.banner_link.length ? (
+                  <BannerBox href={businessData.acf.banner_link}>
+                    {businessData.acf.banner_text}
+                  </BannerBox>
+              ) : (
+                <Link as="/contact" href="/contact?slug=contact&apiRoute=pages">
+                  <BannerBox>{businessData.acf.banner_text}</BannerBox>
+                </Link>
+              )}
+              <Flex alignItems="center" style={{ flexShrink: 0 }}>
+                <Button.button
+                  type="button"
+                  onClick={() => {
+                    updateShouldShowBanner(false);
+                  }}
+                >
+                  <span className="visually-hidden">Close Banner Notification</span>
+                  <img src={`https://icon.now.sh/x/${theme.colors.white.substr(1)}`} alt="close icon" aria-hidden />
+                </Button.button>
+              </Flex>
             </Flex>
+          </Section>
           )}
-        </Container>
-      </Footer>
-    </Box>
-  </ThemeProvider>
-);
+          <Header>
+            <Container>
+              <Flex justifyContent="space-between" alignItems="center">
+                <Box>
+                  <Link href="/">
+                    <a>
+                      <Heading as="span" fontSize={2} lineHeight={1.5} letterSpacing={0.2}>
+                        Joanna Thompson
+                      </Heading>
+                    </a>
+                  </Link>
+                </Box>
+                <Menu menu={headerMenu} />
+              </Flex>
+            </Container>
+          </Header>
+          <main>
+            {post && post.type === 'post' ? (
+              <Container>{children}</Container>
+            ) : (
+              <React.Fragment>{children}</React.Fragment>
+            )}
+            <Section bg="brand">
+              <Container py={8} maxWidth={0}>
+                <Heading as="h3" mb={2}>Subscribe</Heading>
+                {businessData && <Text textAlign="center" mb={3}>{businessData.acf.newsletter_incentive}</Text>}
+                {/* <!-- Begin Mailchimp Signup Form --> */}
+                <div id="mc_embed_signup">
+                  <form action="https://now.us19.list-manage.com/subscribe/post?u=4549ea4a5d992521b24443fe6&amp;id=a3aa572a1b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
+                    <Flex id="mc_embed_signup_scroll">
+                      <label className="visually-hidden" htmlFor="mce-EMAIL">Email Address</label>
+                      <Input type="email" name="EMAIL" id="mce-EMAIL" placeholder="Email Address" defaultValue="" required />
+                      {/*
+                        <!-- real people should not fill this in and expect good things
+                        do not remove this or risk form bot signups-->
+                      */}
+                      <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true"><input type="text" name="b_4549ea4a5d992521b24443fe6_a3aa572a1b" tabIndex="-1" defaultValue="" /></div>
+                      <Button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" ml={2} />
+                    </Flex>
+                  </form>
+                </div>
+                {/* <!--End mc_embed_signup--> */}
+              </Container>
+            </Section>
+          </main>
+          <Footer>
+            <Container>
+              <Text textAlign="center">
+                © Joanna Thompson &middot; Omaha, NE
+              </Text>
+              {businessData && (
+                <Flex alignItems="center" justifyContent="center" mt={2}>
+                  <Social businessData={businessData} theme={theme} />
+                </Flex>
+              )}
+            </Container>
+          </Footer>
+        </Box>
+      </ThemeProvider>
+    );
+  }
+}
 
 Layout.propTypes = {
   businessData: PropTypes.shape({}).isRequired,
