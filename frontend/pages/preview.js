@@ -4,7 +4,6 @@ import fetch from 'isomorphic-unfetch';
 import Error from 'next/error';
 import Layout from '../components/Layout';
 import PageWrapper from '../components/PageWrapper';
-import Menu from '../components/Menu';
 import { Config } from '../config';
 
 class Preview extends Component {
@@ -39,8 +38,7 @@ class Preview extends Component {
     }
 
     return (
-      <Layout>
-        <Menu menu={this.props.headerMenu} />
+      <Layout {...this.props}>
         <h1>{this.state.post ? this.state.post.title.rendered : ''}</h1>
         <div
           dangerouslySetInnerHTML={{
@@ -55,7 +53,6 @@ class Preview extends Component {
 }
 
 Preview.propTypes = {
-  headerMenu: PropTypes.shape({}).isRequired,
   url: PropTypes.shape({
     query: PropTypes.shape({
       id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
