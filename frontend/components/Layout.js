@@ -35,7 +35,7 @@ class Layout extends React.Component {
 
   render() {
     const {
-      businessData, children, headerMenu, post, shouldShowBanner, updateShouldShowBanner,
+      businessData, children, headerMenu, shouldShowBanner, updateShouldShowBanner,
     } = this.props;
     return (
       <ThemeProvider theme={theme}>
@@ -84,11 +84,7 @@ class Layout extends React.Component {
             </Container>
           </Header>
           <main>
-            {post && post.type === 'post' ? (
-              <Container>{children}</Container>
-            ) : (
-              <React.Fragment>{children}</React.Fragment>
-            )}
+            {children}
             <Section bg="brand">
               <Container py={8} maxWidth={0}>
                 <Heading as="h3" mb={2}>Subscribe</Heading>
@@ -134,7 +130,6 @@ Layout.propTypes = {
   businessData: PropTypes.shape({}).isRequired,
   children: PropTypes.node.isRequired,
   headerMenu: PropTypes.shape({}).isRequired,
-  post: PropTypes.shape({}),
   shouldShowBanner: PropTypes.bool.isRequired,
   updateShouldShowBanner: PropTypes.func.isRequired,
 };

@@ -63,3 +63,19 @@ figure {
 .post figure.aligncenter {
   text-align: center;
 }
+
+.wp-block-embed-youtube {
+  position: relative;
+}
+
+.wp-block-embed-youtube.wp-has-aspect-ratio.wp-embed-aspect-16-9 .wp-block-embed__wrapper {
+  padding-bottom: 56.25%;
+}
+
+.wp-block-embed-youtube.wp-has-aspect-ratio iframe {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
