@@ -5,6 +5,7 @@ const PageWrapper = Comp => (
   class extends React.Component {
     state = {
       shouldShowBanner: false,
+      shouldShowPopout: false,
     }
 
     static async getInitialProps(args) {
@@ -38,6 +39,15 @@ const PageWrapper = Comp => (
             storage.setItem('bannerMessage', this.props.businessData.acf.banner_text);
         }
         this.updateShouldShowBanner(shouldShowBanner);
+
+        // Mailchimp Modal
+        const session = window.sessionStorage;
+        const sessionShouldShow = session.getItem('shouldShowPopout');
+        let shouldShowPopout = true;
+        if (typeof sessionShouldShow !== 'undefined' && sessionShouldShow != null) {
+            shouldShowPopout = sessionShouldShow === 'true';
+        }
+        this.updateShouldShowPopout(shouldShowPopout);
     }
 
     updateShouldShowBanner = (shouldShowBanner) => {
@@ -47,11 +57,20 @@ const PageWrapper = Comp => (
         window.localStorage.setItem('shouldShowBanner', shouldShowBanner);
     }
 
+    updateShouldShowPopout = (shouldShowPopout) => {
+        this.setState({
+            shouldShowPopout,
+        });
+        window.sessionStorage.setItem('shouldShowPopout', shouldShowPopout);
+    }
+
     render() {
       return (
         <Comp
           shouldShowBanner={this.state.shouldShowBanner}
           updateShouldShowBanner={this.updateShouldShowBanner}
+          shouldShowPopout={this.state.shouldShowPopout}
+          updateShouldShowPopout={this.updateShouldShowPopout}
           {...this.props}
         />
       );
